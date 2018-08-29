@@ -1,9 +1,9 @@
-import java.awt.List;
+import java.util.List;
 import java.util.ArrayList;
 
 public class CraftNumber {
   public static void main (String [] args) {
-    int expectedCraftNumber = 6;
+    int expectedCraftNumber = 5;
 
     CraftNumber cn = new CraftNumber();
     cn.findCraftNumber(expectedCraftNumber);
@@ -26,13 +26,11 @@ public class CraftNumber {
 
   public boolean isCraftNumber(long number) {
     int result = 1;
-    ArrayList<Long> factorsList = new ArrayList<>();
 
-    for (long i = (number / 2) ; i > 1; i--) {
-      if (!factorsList.contains(i) && number % i == 0) {
+    // start from 2 to Math sqr number
+    for (long i = 2 ; i <= Math.floor(Math.sqrt(number)) ; i++) {
+      if (number % i == 0) {
         result += i + (number / i);
-        factorsList.add(i);
-        factorsList.add(number/i);
       }
     }
 
