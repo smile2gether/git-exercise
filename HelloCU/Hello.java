@@ -1,10 +1,15 @@
 public class Hello {
     public static void main (String[] args) {
-        String name = "Kat";
-        long ID = 6181512026L;
-        Hello hello = new Hello();
-        String isValid = hello.validateStudentId(ID);
-        System.out.println("ID : " + ID + isValid);
+        Student student = new Student();
+        String[] nameList = {"Kat", "Smile", "Kwan", "Oscar", "JJ"};
+        long[] idList = {6181814026L, 6181512026L, 6081342026L, 6081430126L, 598122026L};
+        for (int i = 0 ; i < 5 ; i++) {
+            long id = idList[i];
+            student.setName(nameList[i]);
+            student.setId(id);
+            String isValid = student.validateStudentId(id);
+            System.out.println("Student ID : " + id + isValid); 
+        }
     }
 
     public String validateStudentId (long id) {
